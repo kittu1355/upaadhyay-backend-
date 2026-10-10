@@ -58,6 +58,7 @@ Route::middleware(['auth:sanctum', 'active', 'throttle:api'])->group(function ()
     Route::prefix('candidate')->middleware('role:candidate')->group(function () {
         Route::get('profile', [Candidate\CandidateProfileController::class, 'show']);
         Route::put('profile', [Candidate\CandidateProfileController::class, 'update']);
+        Route::delete('profile/photo', [Candidate\CandidateProfileController::class, 'removePhoto']);
 
         Route::get('education', [Candidate\EducationController::class, 'index']);
         Route::post('education', [Candidate\EducationController::class, 'store']);
