@@ -9,9 +9,9 @@ class CandidateProfile extends Model
 {
     protected $fillable = [
         'user_id', 'profile_photo', 'date_of_birth', 'gender', 'location', 'city', 'state',
-        'bio', 'current_job_title', 'total_experience',
+        'bio', 'current_job_title', 'total_experience', 'profile_data',
     ];
-    protected $casts = ['date_of_birth' => 'date:Y-m-d', 'total_experience' => 'float'];
+    protected $casts = ['date_of_birth' => 'date:Y-m-d', 'total_experience' => 'float', 'profile_data' => 'array'];
 
     public function user(): BelongsTo { return $this->belongsTo(User::class); }
 }
